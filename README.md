@@ -51,7 +51,6 @@ A shopping cart application built **three times** using different state manageme
 
 ### Prerequisites
 - Node.js 18+ and npm 9+
-- (Optional) Docker and Docker Compose for containerized run
 
 ### Context API Version
 
@@ -132,22 +131,3 @@ Each key component displays a yellow render counter badge (dev mode only):
 - `CartSidebar` — SHOULD re-render when cart changes
 - `CartItem` — SHOULD re-render when its item changes
 
-### Bundle Analysis
-
-```bash
-npm run build   # generates stats.html
-```
-
-Open `stats.html` in a browser to see the interactive treemap.
-
-## Key Findings Summary
-
-| Metric | Context (naive) | Context (split) | Zustand | Redux Toolkit |
-|--------|----------------|-----------------|---------|---------------|
-| Unnecessary re-renders | High | Low | Low | Low |
-| Bundle overhead | 0 KB | 0 KB | ~3 KB | ~16 KB |
-| Boilerplate | Minimal | Moderate | Minimal | Moderate |
-| Time-travel debugging | ❌ | ❌ | ❌ | ✅ |
-| Best for | Prototypes | Small apps | Medium apps | Large teams |
-
-See [RESULTS.md](./RESULTS.md) for the full analysis and decision guide.
