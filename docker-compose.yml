@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  shopbench-redux:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: shopbench-redux:latest
+    container_name: shopbench-redux
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:80/"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
